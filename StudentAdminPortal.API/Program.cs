@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using StudentAdminPortal.API.Data;
+using StudentAdminPortal.API.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -12,6 +13,10 @@ builder.Services.AddSwaggerGen();
 
 // Inject DbConetxt into the service container
 builder.Services.AddDbContext<StudentAdminDbContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("StudentAdminPortalDb")));
+
+// This line of code registers the implementation of the IStudentRepository interface, SqlStudentRepository, as a scoped service in the dependency injection container.
+// Scoped services are created once per client request and are shared within the same request scope.
+builder.Services.AddScoped<IStudentRepository, SqlStudentRepository>();
 
 
 var app = builder.Build();
