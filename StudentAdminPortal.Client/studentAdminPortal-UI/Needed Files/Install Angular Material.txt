@@ -1,0 +1,4 @@
+
+Install Angular Material Library
+In the terminal window type
+ng add @angular/material
