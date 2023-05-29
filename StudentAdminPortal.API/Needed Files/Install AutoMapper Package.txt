@@ -1,0 +1,4 @@
+Install AutoMapper packages
+Please install the below nuget packages
+AutoMapper
+AutoMapper.Extensions.Microsoft.DependencyInjection
