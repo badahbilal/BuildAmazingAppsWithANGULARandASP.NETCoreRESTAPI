@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using StudentAdminPortal.API.DTOs;
+using StudentAdminPortal.API.Models;
 using StudentAdminPortal.API.Repositories;
 
 namespace StudentAdminPortal.API.Controllers
@@ -35,7 +36,17 @@ namespace StudentAdminPortal.API.Controllers
                     Email = student.Email, 
                     Mobile = student.Mobile, 
                     ProfileImageUrl= student.ProfileImageUrl, 
-                    GenderId = student.GenderId
+                    GenderId = student.GenderId,
+                    Address = new Address(){
+                        Id = student.Address.Id,
+                        PhysicalAddress = student.Address.PhysicalAddress,
+                        PostalAddress = student.Address.PostalAddress
+                    },
+                    Gender = new Gender(){
+                        Id = student.Gender.Id,
+                        Description = student.Gender.Description
+
+                    }
                 });
             }
 
