@@ -1,0 +1,3 @@
+Flexbox Grid
+Website - http://flexboxgrid.com/
+Install to UI application - npm i flexboxgrid --save
