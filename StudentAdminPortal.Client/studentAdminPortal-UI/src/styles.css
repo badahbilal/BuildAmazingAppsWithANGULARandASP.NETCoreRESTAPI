@@ -2,3 +2,12 @@
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.page-header {
+    background: #F1F1F1;
+}
+
+.page-header h1{
+    padding : 16px 0;
+    margin : 0;
+}
