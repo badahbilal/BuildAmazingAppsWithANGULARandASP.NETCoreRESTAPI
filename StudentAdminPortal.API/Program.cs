@@ -7,6 +7,11 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
+// This line of code adds the CORS (Cross-Origin Resource Sharing) services to the dependency injection container.
+// CORS is a mechanism that allows resources (e.g., APIs) to be requested from a different domain or origin.
+builder.Services.AddCors();
+
+
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
@@ -32,6 +37,14 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+// Configure the HTTP request pipeline.
+// This line of code configures the CORS policy for the application using the app.UseCors method.
+// The CORS policy allows any header and any HTTP method to be used in the requests.
+// Only requests originating from "http://localhost:4200" are allowed to access the resources.
+app.UseCors(builder => builder.AllowAnyHeader().AllowAnyMethod()
+    .WithOrigins("http://localhost:4200"));
+
 
 app.UseAuthorization();
 
